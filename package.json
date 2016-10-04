@@ -12,5 +12,15 @@
   "devDependencies": {
     "jshint": "^2.9.3",
     "mocha": "^3.1.0"
-  }
+  },
+  "keywords": [
+    "highland",
+    "json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saymedia/highland-find-json"
+  },
+  "homepage": "https://github.com/saymedia/highland-find-json",
+  "license": "MIT"
 }
