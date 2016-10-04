@@ -51,6 +51,20 @@ _(rawData).consume(
 );
 ```
 
+The `findJson` function optionally takes a single options object as an argument, which can contain the
+following optional properties:
+
+* `nestingLevel`: controls how many levels of braces to "skip" when locating objects. The default is `0`,
+  which treates the first level of braces as the objects of interest. If the input stream contains an
+  array of objects that are nested inside another object, such as `{"items":[{...},{...}]}` then you can
+  pass `1` here to skip the outer braces and find the ones within the array instead.
+  
+* `maxObjectSize` controls the size of an internal buffer (in bytes) used to accumulate the parts of a
+  JSON object until the closing brace is found. Objects that consist of more bytes than this will be
+  dropped and an error will be emitted into the output stream, so it's important to set this larger
+  than your expected maximum object size. By default it is 8 kilobytes. Changing this value will
+  increase or decrease the size of a chunk of memory that is allocated for the duration of the stream.
+
 ## Installation
 
 As usual:
